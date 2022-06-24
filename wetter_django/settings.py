@@ -130,5 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR,'static_cdn')
 
-API_KEY = "XXX"
+API_KEY = "XXXXXX"
 DEFAULT_CITY = "Cologne"
