@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- visit https://fonts.google.com/specimen/Courier+Prime?preview.text_type=custom to get script-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main.css' %}"></link>
+
+  <!-- This allows us to extend the head scripts in HTML docs that have special requirements-->
+  
+  {% block extend_head %}
+  
+  {% endblock %}
+
+</head>
+<body>
+
+  <!-- This allows us to extend the nav bar in HTML docs that have special requirements-->
+  {% block extend_nav %}
+
+  {% endblock %}
+
+  <div class="div-container">
+    
+    {% include 'main/partials/logo.html' %}
+    <h3>Django OpenWeather API Demo</h3>
+    {% block content %}
+
+    {% endblock %}
+
+    <br />
+    <hr />
+    <section class="section">
+      <div class="div-container">
+          <div class="columns">
+              <div class="column is-offset-2 is-2">
+                {% if weather.error|length == 0 %}
+                <div class="box">
+                    <article class="media">
+                      <div class="media-content">  
+                        <figure class="image is-50x50">
+                            <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                        </figure>
+                        <div class="content">
+                            <p>
+                                <span class="title">{{ weather.city }} ({{ weather.country }})</span>
+                                <span class="subtitle"><b>{{ weather.temperature }} °C</b></span>
+                                <br>
+                                <span>Feels like {{ weather.temparature_feel }} °C</span>
+                                <br> {{ weather.description }}
+                                <br>
+                                Max today {{ weather.temparatur_max }} °C
+                                <br>
+                                humidity today {{ weather.humidity }}%
+                                <br>
+                                Sunrise {{ weather.sunrise }}
+                                <br>
+                                Sunset {{ weather.sunset }}
+                            </p>
+                        </div>
+                      </div>
+                    </article>
+                </div>
+                {% else %}
+                <div class="box">
+                  <div class="content">
+                    <p>
+                        <span class="title">{{ weather.error }}</span>
+                    </p>
+                  </div> 
+                </div>  
+                {% endif %}
+              </div>
+          </div>
+      </div>
+    </section>
+  </div>
+
+  <!--visit https://code.jquery.com/ for jquery script-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- This allows us to extend the foot scripts in HTML docs that have special requirements-->
+  {% block extend_footer %}
+
+  {% endblock %}
+
+  <!-- <script src="{% static 'main.js' %}"></script> -->
+  
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

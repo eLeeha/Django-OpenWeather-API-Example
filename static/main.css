@@ -1,0 +1,32 @@
+body {font-family: 'Courier Prime', monospace;}
+* {box-sizing: border-box;
+  margin-left: 1rem;
+}
+
+body {
+  background: #657bb9;
+  color: #333333;
+  /*! margin: 6rem; */
+}
+
+body, html, .map-container {
+  height: 100%;
+}
+
+.media {
+  float:left;
+  width: 90%;
+}
+.media-content {
+  float:left;
+}
+figure {
+  margin: 0 0 1rem;
+  float: left;
+}
+.title, .subtitle {
+  display: flex;
+}
+.content {
+  width: 500px;
+}
