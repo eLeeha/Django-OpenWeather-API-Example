@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form method="POST"> 
+  {% csrf_token %} 
+  <label for="city_input">City</label>
+  <input type="text" id="city_input" name="city_input" value="{{ current_name }}">
+  <input type="submit" value="Get Weather!" id="button_wetter">
+
+</form>
+
+{% endblock %}
