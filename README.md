@@ -1,5 +1,7 @@
 # Django OpenWeather API Example
 
+![Python](https://img.shields.io/pypi/pyversions/Django)
+![Django](https://img.shields.io/badge/django-4.0-green)
 
 Coding web app that uses Django web framework and the OpenWaether API to retrieve weather data from a city.
 
