@@ -14,7 +14,7 @@ You need to get an api-key from their site to use the api.
 
 ## Requirement
 
-You need a working environment with python <= 3.0 (recommanded Python 3.9.6)
+You need a working environment with python >= 3.0 (recommanded Python 3.9.6)
 
 ## Installation
 
